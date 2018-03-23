@@ -32,6 +32,7 @@ func SM2_Encrypt(pubkey *sm2.PublicKey, in []byte) ([]byte, error) {
 func SM2_EncryptBytes2Hexstr(pubkey *sm2.PublicKey, inBytes []byte) (string, error) {
 	bs, err := SM2_Encrypt(pubkey, inBytes)
 	if err != nil {
+
 	}
 
 	return hex.EncodeToString(bs), nil
