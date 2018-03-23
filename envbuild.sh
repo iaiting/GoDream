@@ -10,9 +10,8 @@
 #
 # Copyright         : 本文件隶属iaiting，欢迎转载无须知会
 #
-# Desciption        : GoDream工程构建脚本，需要安装安装msys2，在msys2环境下运行该
-#                     脚本如果没有采用msys2安装golang，也可以设置脚本中的GO变量，
-#                     指定外部go.exe
+# Desciption        : GoDream工程构建脚本，需要安装msys2，在msys2环境下运行该
+#                     脚本
 #
 # ==============================================================================
 
@@ -67,8 +66,8 @@ function install_gotools() {
     # 代码补全
     ${GO} get -u -v -x github.com/nsf/gocode
 
-    # 代码跳转
-    ${GO} get -u -v -x github.com/rogpeppe/godef
+    # 代码跳转 未加-u选项
+    ${GO} get -v -x github.com/rogpeppe/godef
 
     # 调试器
     ${GO} get -u -v -x github.com/derekparker/delve/cmd/dlv

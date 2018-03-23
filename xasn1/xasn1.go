@@ -1,27 +1,40 @@
+// =============================================================================
+//
+// Author            : iaiting
+//
+// Contact           : iaiting@aliyun.com
+//
+// Generate Data     : 2018-02-17
+//
+// Copyright         : 本文件隶属iaiting，欢迎转载无须知会
+//
+// Desciption        : asn1包
+//
+// =============================================================================
 package xasn1
 
 import (
-	"fmt"
-	"encoding/hex"
 	"encoding/asn1"
+	"encoding/hex"
+	"fmt"
 )
 
 func Hex2bytes(s string) (b []byte, e error) {
-	bb, _:= hex.DecodeString(s)
+	bb, _ := hex.DecodeString(s)
 	fmt.Println(bb)
 	return nil, nil
 }
 
-func Bytes2hex(b [] byte) (s string, e error) {
-	ss:= hex.EncodeToString(b)
+func Bytes2hex(b []byte) (s string, e error) {
+	ss := hex.EncodeToString(b)
 	fmt.Println(ss)
 	return ss, nil
 }
 
 type SysPid struct {
-	Version 	int
-	SysID 		[]byte
-	SysPK 		[]byte
+	Version int
+	SysID   []byte
+	SysPK   []byte
 }
 
 func ParseSysPid(syspidHex string) (e error) {
@@ -34,21 +47,20 @@ func ParseSysPid(syspidHex string) (e error) {
 	fmt.Println("============")
 	fmt.Println(string(syspid.SysID[:]))
 	fmt.Println("============")
-	for i:=0;i<len(syspid.SysPK);i++ {
-		fmt.Printf("%02x ",syspid.SysPK[i])
-		if((i-31)%32==0) {
+	for i := 0; i < len(syspid.SysPK); i++ {
+		fmt.Printf("%02x ", syspid.SysPK[i])
+		if (i-31)%32 == 0 {
 			fmt.Printf("\012")
 		}
 	}
 	return nil
 }
 
-
 type UserPid struct {
-    Version      int     `asn1:"default:1"`
-    Sysid        asn1.RawValue `asn1:"tag:0,optional,explicit"`
-    ID           []byte
-    Pid          []byte
+	Version int           `asn1:"default:1"`
+	Sysid   asn1.RawValue `asn1:"tag:0,optional,explicit"`
+	ID      []byte
+	Pid     []byte
 }
 
 func ParseUserPid(syspidHex string) (e error) {
