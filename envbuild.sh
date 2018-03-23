@@ -19,7 +19,7 @@
 GO=""
 #===============================================================================
 function check_env() {
-    GO=`which gos 2>/dev/null`
+    GO=`which go 2>/dev/null`
     if [ "X${GO}" == "X" ]; then
         echo "Please Config GO BIN Path..."
         return 1
@@ -83,7 +83,6 @@ function main() {
     if [ $? -ne 0 ]; then
         return 1
     fi
-    return 0
 
     link_golang_org
     if [ $? -ne 0 ]; then
