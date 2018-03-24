@@ -50,7 +50,6 @@ func chap0201_01() {
 	pint_a = &int_a
 
 	var msringint_a map[string]int
-	// msringint_a['name'] = "abc123"
 
 	// var func_a func(a int) int
 
@@ -70,7 +69,6 @@ func chap0201_01() {
 	fmt.Println(pint_a)
 	fmt.Println(msringint_a)
 	// fmt.Println(func_a(1))
-
 	fmt.Println(int_b)
 	fmt.Println(string_b)
 }
