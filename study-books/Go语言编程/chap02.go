@@ -103,7 +103,7 @@ func chap0201_03() {
 // 匿名变量
 // =============================================================================
 func chap0201_04() {
-	_, _, nickName := "Qiao", "ting", "iaiting"
+	_, _, nickName := "Qiao", "Ting", "iaiting"
 	fmt.Println(nickName)
 }
 
