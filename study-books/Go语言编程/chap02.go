@@ -100,7 +100,6 @@ func chap0201_03() {
 
 	int_a, int_b = int_b, int_a
 	fmt.Println(int_a, int_b)
-
 }
 
 // 匿名变量
@@ -131,11 +130,9 @@ func Chap02_01() {
 
 // =============================================================================
 func Chap02_02() {
-
 	mySlice := make([]int, 5, 10)
 	fmt.Println("len(mySlice):", len(mySlice))
 	fmt.Println("cap(mySlice):", cap(mySlice))
-
 }
 
 // =============================================================================
