@@ -7,11 +7,12 @@ import (
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Author
-// Generate Data	:
-// 第 2 章 顺序编程
+// Author			: iaiting
+// Generate Data	: 2018-12-21
+// Descriptin		: 《Go语言编程》第 2 章 顺序编程
 //
 ////////////////////////////////////////////////////////////////////////////////
+
 func chap02_t00() {
 
 	simple_log("Enter:")
@@ -47,10 +48,10 @@ func chap02_t01() {
 
 	// 结构体变量声明
 	var v5 struct {
-		v int
+		i int
 	}
 
-	// 指针变量声明
+	// 整型指针变量声明
 	var v6 *int
 
 	// map变量声明
@@ -73,8 +74,8 @@ func chap02_t01() {
 	fmt.Println("指针变量 v6:", v6)
 	fmt.Println("map变量 v7:", v7)
 	// fmt.Println("map变量 v8:", v8)
-	fmt.Println("map变量 v9:", v9)
-	fmt.Println("map变量 v10:", v10)
+	fmt.Println("多变量中的int变量 v9:", v9)
+	fmt.Println("多变量中的string变量 v10:", v10)
 
 	simple_log("Leave:\n")
 }
@@ -176,9 +177,9 @@ func chap02_t07() {
 ////////////////////////////////////////////////////////////////////////////////
 func chap02_main() {
 	chap02_t01()
-	chap02_t02()
-	chap02_t03()
-	chap02_t04()
-	chap02_t05()
-	chap02_t06()
+	// chap02_t02()
+	// chap02_t03()
+	// chap02_t04()
+	// chap02_t05()
+	// chap02_t06()
 }
