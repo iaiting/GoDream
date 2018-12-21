@@ -1,0 +1,6 @@
+# 运行某个测试文件
+go test -v aes_test.go aes.go
+
+# 运行某个测试文件中的某个方法
+# Test_AES128_Encrypt 为正则匹配
+go test -v aes_test.go aes.go -test.run Test_AES128_Encrypt

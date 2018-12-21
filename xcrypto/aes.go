@@ -34,18 +34,6 @@ func AES128_Encrypt(key [16]byte, in []byte) ([]byte, error) {
 	return o_bs, nil
 }
 
-func AES192_Encrypt(key [24]byte, in []byte) ([]byte, error) {
-
-	return nil, nil
-
-}
-
-func AES256_Encrypt(key [32]byte, in []byte) ([]byte, error) {
-
-	return nil, nil
-
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 // AES 解密相关函数
@@ -61,16 +49,4 @@ func AES128_Decrypt(key [16]byte, in []byte) ([]byte, error) {
 	c.Decrypt(m_bs, in)
 
 	return m_bs, nil
-}
-
-func AES192_Decrypt(key [24]byte, in []byte) ([]byte, error) {
-
-	return nil, nil
-
-}
-
-func AES256_Decrypt(key [32]byte, in []byte) ([]byte, error) {
-
-	return nil, nil
-
 }

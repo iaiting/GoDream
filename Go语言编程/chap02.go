@@ -153,6 +153,26 @@ func chap02_t05() {
 	simple_log("Leave:\n")
 }
 
+// 2.3.3 浮点型
+func chap02_t06() {
+	simple_log("Enter:")
+
+	var fval1 float32
+	fval1 = 12
+	fmt.Println("fval =", fval1)
+
+	fval2 := 13.1
+	fval2 = float64(fval1)
+
+	fmt.Println("fval2 =", fval2)
+
+	simple_log("Leave:\n")
+}
+
+// 2.3.4 复数型
+func chap02_t07() {
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 func chap02_main() {
 
@@ -166,4 +186,5 @@ func chap02_main() {
 
 	chap02_t05()
 
+	chap02_t06()
 }
