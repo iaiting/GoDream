@@ -46,7 +46,7 @@ func chap02_t01() {
 	// 整型数组切片变量声明
 	var v4 []int
 
-	// 结构体变量声明
+	// 匿名结构体变量声明
 	var v5 struct {
 		i int
 	}
@@ -70,7 +70,7 @@ func chap02_t01() {
 	fmt.Println("字符串变量 v2:", v2)
 	fmt.Println("整型数组变量 v3:", v3)
 	fmt.Println("整型数组切片变量 v4:", v4)
-	fmt.Println("结构体变量 v5:", v5)
+	fmt.Println("匿名结构体变量 v5:", v5)
 	fmt.Println("指针变量 v6:", v6)
 	fmt.Println("map变量 v7:", v7)
 	// fmt.Println("map变量 v8:", v8)
@@ -87,9 +87,7 @@ func chap02_t02() {
 
 	const zero_0 = 0.0
 	const zero_1 = 0
-
 	const zero_2 = iota
-
 	const v1 = iota * 11
 
 	fmt.Println("zero_0 类型:", reflect.TypeOf(zero_0))
@@ -116,15 +114,11 @@ func chap02_t03() {
 	)
 
 	fmt.Println("Sunday =", Sunday)
-
 	fmt.Println("Monday =", Monday)
-
 	fmt.Println("Tuesday =", Tuesday)
-
 	fmt.Println("Wednesday =", Wednesday)
 
 	simple_log("Leave:\n")
-
 }
 
 // 2.3 类型
@@ -134,8 +128,25 @@ func chap02_t04() {
 
 	var b_v1 bool = true
 	var b_v2 bool = false
+
+	var b_v3 bool = True
+	var b_v4 bool = Ture
+	var b_v5 bool = ture
+
+	var b_v6 bool = False
+	var b_v7 bool = Flase
+	var b_v8 bool = flase
+
 	fmt.Println("b_v1 =", b_v1)
 	fmt.Println("b_v2 =", b_v2)
+
+	fmt.Println("b_v3 =", b_v3)
+	fmt.Println("b_v4 =", b_v4)
+	fmt.Println("b_v5 =", b_v5)
+
+	fmt.Println("b_v6 =", b_v6)
+	fmt.Println("b_v7 =", b_v7)
+	fmt.Println("b_v8 =", b_v8)
 
 	simple_log("Leave:\n")
 
@@ -158,28 +169,139 @@ func chap02_t05() {
 func chap02_t06() {
 	simple_log("Enter:")
 
-	var fval1 float32
-	fval1 = 12
-	fmt.Println("fval =", fval1)
+	var fv1 float32
+	fv1 = 12.0
+	fmt.Println("fv1 =", fv1)
 
-	fval2 := 13.1
-	fval2 = float64(fval1)
+	fv2 := 13.1
+	fv2 = float64(fv1)
 
-	fmt.Println("fval2 =", fval2)
+	fmt.Println("fval2 =", fv2, reflect.TypeOf(fv2))
 
 	simple_log("Leave:\n")
 }
 
 // 2.3.4 复数型
 func chap02_t07() {
+	simple_log("Enter:")
+
+	var v1 complex64
+	v1 = 1 + 2i
+	fmt.Println("v1 =", v1, reflect.TypeOf(v1))
+
+	v2 := 2 + 3i
+	fmt.Println("v2 =", v1, reflect.TypeOf(v2))
+
+	v3 := complex(4, 5)
+	fmt.Println("v3 =", v3, reflect.TypeOf(v3))
+
+	simple_log("Leave:\n")
+}
+
+// 2.3.5 字符串
+func chap02_t08() {
+	simple_log("Enter:")
+
+	var v1 string = "我爱中华"
+	fmt.Println("v1[0] =", v1[0], len(v1), reflect.TypeOf(v1[0]))
+
+	var v2 string = "abc"
+	fmt.Println("v1[0] =", v2[0], reflect.TypeOf(v2[0]))
+	simple_log("Leave:\n")
+}
+
+// 动态增加元素
+func chap02_t09() {
+	simple_log("Enter:")
+
+	var v1 []int = []int{1, 2, 3}
+	var v2 []int = []int{11, 22, 33}
+	v1 = append(v1, v2...)
+
+	fmt.Println(v1)
+	fmt.Println(v2)
+
+	simple_log("Leave:\n")
+
+}
+
+// 2.3.8 数组切片
+// 基于数组创建数组切片
+func chap02_01() {
+	simple_log("Enter:")
+
+	var myArray [10]int = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	var mySlice []int = myArray[:5]
+
+	fmt.Println("Elements of myArray: ")
+	for _, v := range myArray {
+		fmt.Print(v, " ")
+	}
+	fmt.Println()
+
+	fmt.Println("Elements of mySlice: ")
+	for _, v := range mySlice {
+		fmt.Print(v, " ")
+	}
+	fmt.Println()
+
+	simple_log("Leave:\n")
+}
+
+// 数组切片容量
+func chap02_02() {
+	simple_log("Enter:\n")
+	mySlice := make([]int, 5, 10)
+	fmt.Println("len(mySlice):", len(mySlice))
+	fmt.Println("len(mySlice):", cap(mySlice))
+	simple_log("Leave:\n")
+}
+
+func chap02_03() {
+	type PersonInfo struct {
+		ID      string
+		Name    string
+		Address string
+	}
+	var persionDB map[string]PersonInfo
+	persionDB = make(map[string]PersonInfo)
+	persionDB["12345"] = PersonInfo{"12345", "Tom", "Room 203, ..."}
+	persionDB["1"] = PersonInfo{"1", "Jack", "Jack 101, ..."}
+	person, ok := persionDB["12345"]
+
+	if ok {
+		fmt.Println("Found person", person)
+
+	} else {
+		fmt.Println("Did not find person")
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 func chap02_main() {
+
 	chap02_t01()
-	// chap02_t02()
-	// chap02_t03()
-	// chap02_t04()
-	// chap02_t05()
-	// chap02_t06()
+
+	chap02_t02()
+
+	chap02_t03()
+
+	chap02_t04()
+
+	chap02_t05()
+
+	chap02_t06()
+
+	chap02_t07()
+
+	chap02_t08()
+
+	chap02_t09()
+
+	chap02_01()
+
+	chap02_02()
+
+	chap02_03()
 }
